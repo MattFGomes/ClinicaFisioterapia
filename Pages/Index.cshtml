@@ -1,9 +1,31 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Bem vindo ao sitema da Clínica de Fisioterapia!</h1>
+    <h1 class="display-4">Bem-vindo à Clínica de Fisioterapia</h1>
+    <p>Sistema de gerenciamento de pacientes e agendamentos</p>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pacientes</h5>
+                    <p class="card-text">Gerencie os registros de pacientes</p>
+                    <a asp-page="/Pacientes/Index" class="btn btn-primary">Acessar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Agendamentos</h5>
+                    <p class="card-text">Gerencie os agendamentos de sessões</p>
+                    <a asp-page="/Agendamentos/Index" class="btn btn-primary">Acessar</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
