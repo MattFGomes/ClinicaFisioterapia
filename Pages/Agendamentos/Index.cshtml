@@ -1,0 +1,39 @@
+﻿@page
+@model ClinicaFisioterapia.Pages.Agendamentos.IndexModel
+
+@{
+    ViewData["Title"] = "Agendamentos";
+}
+
+<h1>Lista de Agendamentos</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Novo Agendamento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Paciente</th>
+            <th>Data/Hora</th>
+            <th>Procedimento</th>
+            <th>Confirmado</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Agendamento)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Paciente.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.DataHora)</td>
+                <td>@Html.DisplayFor(modelItem => item.Procedimento)</td>
+                <td>@(item.Confirmado ? "Sim" : "Não")</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalhes</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

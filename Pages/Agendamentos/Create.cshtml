@@ -1,0 +1,49 @@
+﻿@page
+@model ClinicaFisioterapia.Pages.Agendamentos.CreateModel
+
+@{
+    ViewData["Title"] = "Novo Agendamento";
+}
+
+<h1>Novo Agendamento</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Agendamento.PacienteId" class="control-label">Paciente</label>
+                <select asp-for="Agendamento.PacienteId" class="form-control"
+                        asp-items="@Model.Pacientes">
+                    <option value="">Selecione um paciente</option>
+                </select>
+                <span asp-validation-for="Agendamento.PacienteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agendamento.DataHora" class="control-label"></label>
+                <input asp-for="Agendamento.DataHora" class="form-control" />
+                <span asp-validation-for="Agendamento.DataHora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agendamento.Procedimento" class="control-label"></label>
+                <input asp-for="Agendamento.Procedimento" class="form-control" />
+                <span asp-validation-for="Agendamento.Procedimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agendamento.Observacoes" class="control-label"></label>
+                <textarea asp-for="Agendamento.Observacoes" class="form-control"></textarea>
+                <span asp-validation-for="Agendamento.Observacoes" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Agendamento.Confirmado" /> @Html.DisplayNameFor(model => model.Agendamento.Confirmado)
+                </label>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-page="Index" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

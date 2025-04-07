@@ -1,0 +1,37 @@
+﻿@page
+@model ClinicaFisioterapia.Pages.Pacientes.IndexModel
+
+@{
+    ViewData["Title"] = "Pacientes";
+}
+
+<h1>Lista de Pacientes</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Novo Paciente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Paciente[0].Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Paciente[0].CPF)</th>
+            <th>@Html.DisplayNameFor(model => model.Paciente[0].Telefone)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Paciente)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.CPF)</td>
+                <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalhes</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
