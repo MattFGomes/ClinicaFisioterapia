@@ -4,26 +4,50 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center" style="background-color: var(--bs-light); color: var(--bs-dark);">
-    <h1 class="display-4" style="color: var(--bs-primary);">Bem-vindo à Clínica de Fisioterapia</h1>
-    <p>Sistema de gerenciamento de pacientes e agendamentos</p>
+<div class="text-center py-5" style="background-color: var(--bs-light); color: var(--bs-dark); min-height: 80vh;">
+    <h1 class="display-4 mb-3" style="color: var(--bs-primary);">
+        <i class="bi bi-hospital-fill me-2"></i>
+        Bem-vindo à Clínica de Fisioterapia
+    </h1>
+    <p class="lead mb-5" style="color: var(--bs-secondary);">
+        <i class="bi bi-clipboard2-pulse me-2"></i>
+        Sistema de gerenciamento de pacientes e agendamentos
+    </p>
 
-    <div class="row mt-5">
-        <div class="col-md-6">
-            <div class="card" style="background-color: var(--bs-success-bg-subtle); border-color: var(--bs-success-border-subtle);">
+    <div class="row justify-content-center g-4">
+        <div class="col-md-5">
+            <div class="card shadow border-0 h-100" style="background-color: var(--bs-success-bg-subtle); border-color: var(--bs-success-border-subtle);">
                 <div class="card-body">
-                    <h5 class="card-title" style="color: var(--bs-success-text-emphasis);">Pacientes</h5>
-                    <p class="card-text">Gerencie os registros de pacientes</p>
-                    <a asp-page="/Pacientes/Index" class="btn btn-primary">Acessar</a>
+                    <h5 class="card-title mb-2" style="color: var(--bs-success-text-emphasis);">
+                        <i class="bi bi-people-fill me-2"></i>
+                        Pacientes
+                    </h5>
+                    <p class="card-text">
+                        <i class="bi bi-person-vcard me-1"></i>
+                        Gerencie os registros de pacientes
+                    </p>
+                    <a asp-page="/Pacientes/Index" class="btn btn-success w-100">
+                        <i class="bi bi-arrow-right-circle me-1"></i>
+                        Acessar
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card" style="background-color: var(--bs-info-bg-subtle); border-color: var(--bs-info-border-subtle);">
+        <div class="col-md-5">
+            <div class="card shadow border-0 h-100" style="background-color: var(--bs-info-bg-subtle); border-color: var(--bs-info-border-subtle);">
                 <div class="card-body">
-                    <h5 class="card-title" style="color: var(--bs-info-text-emphasis);">Agendamentos</h5>
-                    <p class="card-text">Gerencie os agendamentos de sessões</p>
-                    <a asp-page="/Agendamentos/Index" class="btn btn-primary">Acessar</a>
+                    <h5 class="card-title mb-2" style="color: var(--bs-info-text-emphasis);">
+                        <i class="bi bi-calendar2-week-fill me-2"></i>
+                        Agendamentos
+                    </h5>
+                    <p class="card-text">
+                        <i class="bi bi-clock-history me-1"></i>
+                        Gerencie os agendamentos de sessões
+                    </p>
+                    <a asp-page="/Agendamentos/Index" class="btn btn-info w-100 text-white">
+                        <i class="bi bi-arrow-right-circle me-1"></i>
+                        Acessar
+                    </a>
                 </div>
             </div>
         </div>

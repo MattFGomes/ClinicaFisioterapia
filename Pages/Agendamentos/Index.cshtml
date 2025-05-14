@@ -5,35 +5,60 @@
     ViewData["Title"] = "Agendamentos";
 }
 
-<h1>Lista de Agendamentos</h1>
-
-<p>
-    <a asp-page="Create" class="btn btn-primary">Novo Agendamento</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Paciente</th>
-            <th>Data/Hora</th>
-            <th>Procedimento</th>
-            <th>Confirmado</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Agendamento)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Paciente.Nome)</td>
-                <td>@Html.DisplayFor(modelItem => item.DataHora)</td>
-                <td>@Html.DisplayFor(modelItem => item.Procedimento)</td>
-                <td>@(item.Confirmado ? "Sim" : "Não")</td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Editar</a>
-                    <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalhes</a>
-                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Excluir</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="p-4 rounded-3 mb-4" style="background-color: var(--bs-info-bg-subtle); border: 1px solid var(--bs-info-border-subtle);">
+    <h1 class="mb-3" style="color: var(--bs-info-text-emphasis);">
+        <i class="bi bi-calendar2-week-fill me-2"></i>
+        Lista de Agendamentos
+    </h1>
+    <a asp-page="Create" class="btn btn-info mb-3 text-white">
+        <i class="bi bi-calendar-plus"></i> Novo Agendamento
+    </a>
+    <div class="table-responsive">
+        <table class="table align-middle table-hover border rounded-3 overflow-hidden">
+            <thead class="table-info">
+                <tr>
+                    <th><i class="bi bi-person-badge me-1"></i>Paciente</th>
+                    <th><i class="bi bi-calendar-event me-1"></i>Data/Hora</th>
+                    <th><i class="bi bi-activity me-1"></i>Procedimento</th>
+                    <th><i class="bi bi-check2-circle me-1"></i>Confirmado</th>
+                    <th><i class="bi bi-gear me-1"></i>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Agendamento)
+                {
+                    <tr>
+                        <td><i class="bi bi-person me-1"></i>@Html.DisplayFor(modelItem => item.Paciente.Nome)</td>
+                        <td><i class="bi bi-clock me-1"></i>@Html.DisplayFor(modelItem => item.DataHora)</td>
+                        <td><i class="bi bi-activity me-1"></i>@Html.DisplayFor(modelItem => item.Procedimento)</td>
+                        <td>
+                            @if (item.Confirmado)
+                            {
+                                <span class="badge rounded-pill text-bg-success">
+                                    <i class="bi bi-check-circle me-1"></i>Sim
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge rounded-pill text-bg-secondary">
+                                    <i class="bi bi-x-circle me-1"></i>Não
+                                </span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">
+                                <i class="bi bi-pencil-square"></i> Editar
+                            </a>
+                            <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-info me-1 text-white">
+                                <i class="bi bi-eye"></i> Detalhes
+                            </a>
+                            <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                <i class="bi bi-trash"></i> Excluir
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
